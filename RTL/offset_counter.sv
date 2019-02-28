@@ -20,7 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module offset_counter(
-
-    );
+module offset_counter(input logic clk, reset, enable,
+				      output logic [9:0] count);
+	
+	binaryCounter #(.MAXVAL(1024)) counter_10bit(.clk(clk), .reset(reset), .enable(enable), .out(count));
+	
+	
 endmodule

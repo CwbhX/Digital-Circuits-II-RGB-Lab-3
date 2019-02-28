@@ -73,7 +73,7 @@ module fsm(input logic clk, reset, delay_enb, col_count, row_count, row_filled,
 					
 					if(delay_enb) begin
 						row_counter_enb <= 1;                      // Increase row counter by 1 - This will also let the matrix display the correct row when blank comes low - Should also overflow eventually which is what we want
-						if(row_count == 3'd7) offset_counter_enb <= 1;
+						if(row_count == 3'd7) offset_counter_enb <= 1;  // When we are on the 7th row, increase the offset by one to shift the display for when starting the next frame (row = 0)
 						matrix_trans_state <= LATCH;               // Move state to LATCH
 					end
 					else matrix_trans_state <= BLANK;              // Stay in BLANK state whilst waiting for delay

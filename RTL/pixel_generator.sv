@@ -25,14 +25,17 @@ module pixel_generator(input logic clk, reset,
 	logic [3:0]  bottom_data_out;
 	RAM_Bottom RAM_Bottom(.data_in(bottom_data_in), .write_addr(bottom_write_addr), .write_enable(bottom_write_enable), .read_addr(bottom_read_addr), .data_out(bottom_data_out), .clk(clk));
 	
-	
+	// Set the read address values for the RAM to the concatenated value generated from the current row and column and offset
+	assign top_read_addr    = read_addr;
+	assign bottom_read_addr = read_addr;
 	
 	always_ff @(posedge clk) begin
 		if(reset) begin
-			LED_Top <= 3'b000;
+			LED_Top    <= 3'b000;
 			LED_Bottom <= 3'b000;
 		end else begin
-			
+			LED_Top    <= top_data_out[2:0];
+			LED_Bottom <= bottom_data_out[2:0];
 		end
 	end
 endmodule

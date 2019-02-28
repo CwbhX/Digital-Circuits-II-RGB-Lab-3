@@ -15,7 +15,7 @@ module pixel_generator(input logic clk, reset,
 	logic        top_write_enable;
 	logic [12:0] top_read_addr;
 	logic [3:0]  top_data_out;
-	RAM_Top RAM_Top(.data_in(top_data_in), .write_addr(top_write_addr), .write_enable(top_write_enable), .read_addr(top_read_addr), .data_out(top_data_out));
+	RAM_Top RAM_Top(.data_in(top_data_in), .write_addr(top_write_addr), .write_enable(top_write_enable), .read_addr(top_read_addr), .data_out(top_data_out), .clk(clk));
 	
 	// Setup Bottom half of the matrix RAM Module
 	logic [31:0] bottom_data_in;
@@ -23,7 +23,7 @@ module pixel_generator(input logic clk, reset,
 	logic        bottom_write_enable;
 	logic [12:0] bottom_read_addr;
 	logic [3:0]  bottom_data_out;
-	RAM_Bottom RAM_Bottom(.data_in(bottom_data_in), .write_addr(bottom_write_addr), .write_enable(bottom_write_enable), .read_addr(bottom_read_addr), .data_out(bottom_data_out));
+	RAM_Bottom RAM_Bottom(.data_in(bottom_data_in), .write_addr(bottom_write_addr), .write_enable(bottom_write_enable), .read_addr(bottom_read_addr), .data_out(bottom_data_out), .clk(clk));
 	
 	
 	

@@ -228,18 +228,18 @@ module RAM_Bottom(input logic [31:0] data_in,
           .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
           .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000)
        ) BRAM_SDP_MACRO_inst (
-          .DO(DO),         // Output read data port, width defined by READ_WIDTH parameter
-          .DI(DI),         // Input write data port, width defined by WRITE_WIDTH parameter
-          .RDADDR(RDADDR), // Input read address, width defined by read port depth
-          .RDCLK(RDCLK),   // 1-bit input read clock
+          .DO(data_out),         // Output read data port, width defined by READ_WIDTH parameter
+          .DI(data_in),         // Input write data port, width defined by WRITE_WIDTH parameter
+          .RDADDR(read_addr), // Input read address, width defined by read port depth
+          .RDCLK(clk),   // 1-bit input read clock
           .RDEN(RDEN),     // 1-bit input read port enable
           .REGCE(REGCE),   // 1-bit input read output register enable
           .RST(RST),       // 1-bit input reset      
           .WE(WE),         // Input write enable, width defined by write port depth
-          .WRADDR(WRADDR), // Input write address, width defined by write port depth
-          .WRCLK(WRCLK),   // 1-bit input write clock
-          .WREN(WREN)      // 1-bit input write port enable
-       );
+          .WRADDR(write_addr), // Input write address, width defined by write port depth
+          .WRCLK(clk),   // 1-bit input write clock
+          .WREN(write_enable)      // 1-bit input write port enable
+    );
     
        // End of BRAM_SDP_MACRO_inst instantiation
 

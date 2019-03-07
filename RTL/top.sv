@@ -15,6 +15,7 @@ module top(input logic clk, reset,
 	// Setup the row counter module
 	logic row_counter_enable;
 	logic [2:0] row_count;
+	assign row_select = row_count - 1; // Always be 1 behind the row we are currently working on
 	row_counter row_counter(.clk(clk), .reset(reset), .enable(row_counter_enable), .count(row_count));
 	
 	// Setup the column counter module

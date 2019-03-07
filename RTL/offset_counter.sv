@@ -25,7 +25,7 @@ module offset_counter(input logic clk, reset, enable,
 	
 	// Allows us to choose the number of frames we want to wait from the higher level module
 	parameter FRAME_COUNT = 100;
-	logic [$clog2(FRAME_COUNT):0] frame_count;
+	logic [$clog2(FRAME_COUNT) - 1:0] frame_count;
 	logic offset_count_enable;
 	
 	binaryCounter #(.MAXVAL(FRAME_COUNT)) counter_frames(.clk(clk), .reset(reset), .enable(enable), .out(frame_count)); // Count frames

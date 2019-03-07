@@ -67,8 +67,8 @@ module RAM_Bottom(input logic [31:0] data_in,
        BRAM_SDP_MACRO #(
           .BRAM_SIZE("36Kb"), // Target BRAM, "18Kb" or "36Kb" 
           .DEVICE("7SERIES"), // Target device: "7SERIES" 
-          .WRITE_WIDTH(0),    // Valid values are 1-72 (37-72 only valid when BRAM_SIZE="36Kb")
-          .READ_WIDTH(0),     // Valid values are 1-72 (37-72 only valid when BRAM_SIZE="36Kb")
+          .WRITE_WIDTH(32),    // Valid values are 1-72 (37-72 only valid when BRAM_SIZE="36Kb")
+          .READ_WIDTH(4),     // Valid values are 1-72 (37-72 only valid when BRAM_SIZE="36Kb")
           .DO_REG(0),         // Optional output register (0 or 1)
           .INIT_FILE ("NONE"),
           .SIM_COLLISION_CHECK ("ALL"), // Collision check enable "ALL", "WARNING_ONLY", 

@@ -1,6 +1,8 @@
 `timescale 1ns / 1ps
 
-module fsm(input logic clk, reset, delay_enb, col_count, row_count, row_filled,
+module fsm(input logic clk, reset, delay_enb, row_filled,
+           input logic [4:0] col_count, 
+           input logic [2:0] row_count,
 		  output logic col_counter_enb, row_counter_enb, offset_counter_enb, sclk, blank, latch);
 		
 	typedef enum logic[6:0] {IDLE, SCLK_LOW, SCLK_HIGH, ROWS_FILLED, BLANK, LATCH, UNLATCH} matrix_trans_table;

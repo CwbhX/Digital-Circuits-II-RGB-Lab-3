@@ -20,7 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module number_writer(
-
-    );
+module number_writer(input logic clk, rst,
+                     input logic [3:0] number,
+                     input logic [2:0] colour,
+                     output logic [31:0] data_out,
+                     output logic [9:0] write_addr,
+                     output logic write_enable);
 endmodule

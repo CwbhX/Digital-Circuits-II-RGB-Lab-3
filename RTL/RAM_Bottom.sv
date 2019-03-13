@@ -25,7 +25,7 @@ module RAM_Bottom(input logic [31:0] data_in,
                input logic write_enable,
                input logic [12:0] read_addr,
                output logic [3:0] data_out,
-               input logic clk);  
+               input logic clk, RST);  
                
     assign WE = 4'b1111;
     assign RDEN = 4'b1;

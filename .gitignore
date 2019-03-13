@@ -27,3 +27,13 @@
 *.sdb
 *.rlx
 *.ini
+*.rst
+*.js
+*.sh
+*.bit
+*.vdi
+*.rpt
+*.dcp
+*.rpx
+*.vds
+project_1/project_1.runs/synth_1/.Xil/top_propImpl.xdc

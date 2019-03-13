@@ -28,8 +28,8 @@ module concatenator(input logic reset,
 	
 	always_comb begin
         if(reset) address = 13'd0;
-        else begin											    //   column   row
-            assign address = {(col_count + offset), row_count}; // xxxxxxxxxx xxx 13 bit address returned
+        else begin									     //   column   row
+            address = {(col_count + offset), row_count}; // xxxxxxxxxx xxx 13 bit address returned
         end
 	end			
 endmodule

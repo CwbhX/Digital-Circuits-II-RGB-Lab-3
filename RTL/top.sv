@@ -26,7 +26,7 @@ module top(input logic clk, reset,
 	// Setup the offset counter module
 	logic offset_counter_enable;
 	logic [9:0] offset_count;
-	offset_counter #(.FRAME_COUNT(100)) offset_counter(.clk(clk), .reset(reset), .enable(offset_counter_enable), .count(offset_count));
+	offset_counter #(.FRAME_COUNT(750)) offset_counter(.clk(clk), .reset(reset), .enable(offset_counter_enable), .count(offset_count)); // Provides a frame count before moving the offset to slow down the display
 	
 	// Setup the pixel-gen module
 	pixel_generator pixel_generator(.clk(clk), .reset(reset), .col_count(col_count), .row_count(row_count), .offset(offset_count), .LED_Top(LED_Top), .LED_Bottom(LED_Bottom));
